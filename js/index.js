@@ -1,0 +1,22 @@
+const home = document.querySelector("#btn-home");
+const about = document.querySelector("#btn-about");
+const projects = document.querySelector("#btn-projects");
+const ascci = document.querySelector("#btn-ascci");
+const sections = document.querySelector(".tab-container");
+
+home.addEventListener("click",() =>changeTab(1));
+about.addEventListener("click",() => changeTab(2));
+projects.addEventListener("click",() => changeTab(3));
+ascci.addEventListener("click",() => changeTab(4));
+function changeTab (index){
+    var u = 0;
+    for( const section of sections.children){
+        if(u > 0 && u != index){
+            section.setAttribute('class','hide-section');
+        }else if (u == index){
+            section.removeAttribute('class','hide-section');
+        }
+        u++;
+    }
+}
+console.log(sections);
