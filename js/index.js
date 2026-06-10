@@ -1,3 +1,5 @@
+
+
 const home = document.querySelector("#btn-home");
 const about = document.querySelector("#btn-about");
 const projects = document.querySelector("#btn-projects");
@@ -19,4 +21,12 @@ function changeTab (index){
         u++;
     }
 }
-console.log(sections);
+document.querySelector('#date-picker').value = '';
+const picker = datepicker('#date-picker',{
+    dateSelected: null,
+    formatter: (input,date,instance) => {
+        const value = date.toLocaleDateString();
+        input.value = value;
+        console.log(value);
+    }
+});

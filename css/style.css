@@ -1,3 +1,4 @@
+@import '../node_modules/js-datepicker/dist/datepicker.min.css';
 * {
     margin: 0;
     padding: 0;
@@ -62,7 +63,12 @@ pre{
 h2{
     font-family: "UnifrakturMaguntia";
 }
-
+input{
+    background-color: #550f0f;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+}
 .unifrakturmaguntia-regular {
   font-family: "UnifrakturMaguntia", cursive;
   font-weight: 400;
