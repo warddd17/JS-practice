@@ -5,7 +5,9 @@ const about = document.querySelector("#btn-about");
 const projects = document.querySelector("#btn-projects");
 const ascci = document.querySelector("#btn-ascci");
 const sections = document.querySelector(".tab-container");
-
+const accept = document.querySelector("#btn-accept");
+const decline = document.querySelector("#btn-decline");
+const cookieMessage = document.querySelector('.cookie-message');
 home.addEventListener("click",() =>changeTab(1));
 about.addEventListener("click",() => changeTab(2));
 projects.addEventListener("click",() => changeTab(3));
@@ -29,4 +31,12 @@ const picker = datepicker('#date-picker',{
         input.value = value;
         console.log(value);
     }
+});
+
+//Cookies
+accept.addEventListener("click", () => {
+    cookieMessage.setAttribute('class','hide-section');
+});
+decline.addEventListener("click", () => {
+    cookieMessage.setAttribute('class','hide-section');
 });

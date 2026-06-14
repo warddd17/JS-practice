@@ -104,4 +104,80 @@ input{
     display: flex;
     justify-content: center;
 }
+.relative-message{
+    position: absolute;
+    display: none;
+    bottom: 150%;
+    font-size: 10px;
+    border-radius: 3px;
+    width: 150px;
+    height: auto;
+
+    --a: 90deg; /* angle */
+    --h: 1em; /* height */
+
+    --p: 11%; /* triangle position (0%:left 100%:right) */
+    --b: 1px; /* border width */
+    background-color: #131313;
+    padding: 1em;
+    clip-path: polygon(0 100%,0 0,100% 0,100% 100%,
+        min(100%,var(--p) + var(--h)*tan(var(--a)/2)) 100%,
+        var(--p) calc(100% + var(--h)),
+        max(0%  ,var(--p) - var(--h)*tan(var(--a)/2)) 100%);
+    border-image: fill 0//var(--h) 0
+        conic-gradient( #131313 0 0); /* the border color */
+    
+
+}
+
+.relative-message:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: var(--b) 0;
+  clip-path: polygon(0 100%,0 0,100% 0,100% 100%,
+    min(100% - var(--b),var(--p) + var(--h)*tan(var(--a)/2) - var(--b)*tan(45deg - var(--a)/4)) 100%,
+    var(--p) calc(100% + var(--h) + var(--b)*(1 - 1/sin(var(--a)/2))),
+    max(       var(--b),var(--p) - var(--h)*tan(var(--a)/2) + var(--b)*tan(45deg - var(--a)/4)) 100%);
+  border-image: fill 0/0 var(--b)/var(--h) 0
+    conic-gradient( #faebd7 0 0); /* the background color */
+}
+
+.tabs-header button{
+    position: relative;
+}
+.tabs-header button:hover{
+    .relative-message{
+        display: block;
+    }
+}
+.cookie-message{
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    width: 250px;
+    height: 140px;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+.cookie-message button{
+    background-color: #550f0f;
+    color: white;
+    margin: 5px;
+}
+.cookie-message button:hover{
+    scale: 1.04;
+    background-color: #550f0f9a;
+}
+.cookie-message p{
+    margin: 4px;
+}
+.cookie-message h3{
+    font-size: 18px;
+}
 
