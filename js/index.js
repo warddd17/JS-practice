@@ -8,6 +8,8 @@ const sections = document.querySelector(".tab-container");
 const accept = document.querySelector("#btn-accept");
 const decline = document.querySelector("#btn-decline");
 const cookieMessage = document.querySelector('.cookie-message');
+const textArea = document.querySelector("#text-area");
+const counter = document.querySelector("#count");
 home.addEventListener("click",() =>changeTab(1));
 about.addEventListener("click",() => changeTab(2));
 projects.addEventListener("click",() => changeTab(3));
@@ -40,3 +42,12 @@ accept.addEventListener("click", () => {
 decline.addEventListener("click", () => {
     cookieMessage.setAttribute('class','hide-section');
 });
+
+document.querySelector("#text-area").value = '';
+textArea.addEventListener("input", update);
+function update( event ){
+    var input = event.target.value;
+    var value = input.length;
+    const limit = 300; 
+    counter.textContent = `${value}/${limit}`;
+}
